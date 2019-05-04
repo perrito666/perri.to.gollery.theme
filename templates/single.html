@@ -14,6 +14,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <!-- Open Graph Data -->
+    
+    <meta property="og:title" content="{{if .Title}}{{.Title}}{{else}}{{.FileName}}{{end}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="{{if .Description}}{{.Description}}{{end}}" />
+    <meta property="og:url" content="https://photos.perri.to{{.RelativePath}}" />
+    <meta property="og:image" content="https://photos.perri.to{{.ThumbName 320 213}}" />
 </head>
 
 <body>
@@ -21,7 +29,7 @@
         {{if .ParentTree}}
         {{range $i, $e := .ParentTree}}
         <a class="breadcrumb-item"
-            href="{{$e.TraversePath}}">{{if $e.Title}} {{$e.Title}} {{else}} {{$e.FolderName}} {{end}}</a>
+            href="{{$e.TraversePath}}">{{if $e.Title}}{{$e.Title}}{{else}}{{$e.FolderName}}{{end}}</a>
         {{end}}
         {{end}}
     </nav>
@@ -30,7 +38,7 @@
             {{range .Siblings}}
             <li class="nav-item">
                 <a href="{{.FileName}}" class="sibling_picture nav-link {{if .Current}} disabled{{end}}"
-                    {{if .Current}}tabindex="-1" aria-disabled="true" {{end}}>{{if .Title}} {{.Title}} {{else}}
+                    {{if .Current}}tabindex="-1" aria-disabled="true" {{end}}>{{if .Title}}{{.Title}}{{else}}
                     {{.FileName}}
                     {{end}}</a>
             </li>
@@ -41,7 +49,7 @@
         <ul class="nav">
             {{range .Children}}
             <li class="nav-item">
-                <a href="{{.TraversePath}}" class="children_album nav-link">{{if .Title}} {{.Title}} {{else}}
+                <a href="{{.TraversePath}}" class="children_album nav-link">{{if .Title}}{{.Title}}{{else}}
                     {{.FolderName}} {{end}}</a>
             </li>
             {{end}}
@@ -50,12 +58,11 @@
 
 
     <header>
-        <h1>{{if .Title}} {{.Title}} {{else}} {{.FileName}} {{end}}</h1>
-        <p>{{.Description}}</p>
+        <h1>{{if .Title}}{{.Title}}{{else}}{{.FileName}}{{end}}</h1>
     </header>
     <main>
         <img src="{{.RelativePath}}" class="img-fluid" alt="{{if .Title}} {{.Title}} {{else}} {{.FileName}} {{end}}">
-        <p>{{.Description}}</p>
+        <p>{{if .Description}}{{.Description}}{{end}}</p>
     </main>
     <footer>
         <nav aria-label="paginator" >
