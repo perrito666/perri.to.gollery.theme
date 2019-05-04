@@ -15,11 +15,19 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-        <meta property="og:title" content="{{if .Title}}{{.Title}}{{else}}{{.FolderName}}{{end}}" />
-        <meta property="og:type" content="website" />
-        <meta property="og:description" content="{{if .Description}}{{.Description}}{{end}}" />
-        <meta property="og:url" content="{{.Metadata.baseURL}}{{.RelativePath}}" />
-       
+    <meta property="og:title" content="{{if .Title}}{{.Title}}{{else}}{{.FolderName}}{{end}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="{{if .Description}}{{.Description}}{{end}}" />
+    <meta property="og:url" content="{{.Metadata.baseURL}}{{.RelativePath}}" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{.Metadata.gtag}}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', '{{.Metadata.gtag}}');
+    </script>
 </head>
 
 <body>

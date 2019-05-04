@@ -16,12 +16,21 @@
         crossorigin="anonymous"></script>
 
     <!-- Open Graph Data -->
-    
+
     <meta property="og:title" content="{{if .Title}}{{.Title}}{{else}}{{.FileName}}{{end}}" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="{{if .Description}}{{.Description}}{{end}}" />
     <meta property="og:url" content="{{.Metadata.baseURL}}{{.RelativePath}}" />
     <meta property="og:image" content="{{.Metadata.baseURL}}{{.ThumbName 320 213}}" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{.Metadata.gtag}}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', '{{.Metadata.gtag}}');
+    </script>
 </head>
 
 <body>
@@ -65,7 +74,7 @@
         <p>{{if .Description}}{{.Description}}{{end}}</p>
     </main>
     <footer>
-        <nav aria-label="paginator" >
+        <nav aria-label="paginator">
             <ul class="pagination justify-content-center">
                 {{if .Previous}}
                 <li class="page-item">
