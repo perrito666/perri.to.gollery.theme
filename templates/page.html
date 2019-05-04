@@ -18,7 +18,7 @@
     <meta property="og:title" content="{{if .Title}}{{.Title}}{{else}}{{.FolderName}}{{end}}" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="{{if .Description}}{{.Description}}{{end}}" />
-    <meta property="og:url" content="{{.Metadata.baseURL}}{{.RelativePath}}" />
+    <meta property="og:url" content="{{.Metadata.baseURL}}{{.TraversePath}}" />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id={{.Metadata.gtag}}"></script>
     <script>
