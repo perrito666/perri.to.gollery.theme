@@ -20,8 +20,8 @@
     <meta property="og:title" content="{{if .Title}}{{.Title}}{{else}}{{.FileName}}{{end}}" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="{{if .Description}}{{.Description}}{{end}}" />
-    <meta property="og:url" content="https://photos.perri.to{{.RelativePath}}" />
-    <meta property="og:image" content="https://photos.perri.to{{.ThumbName 320 213}}" />
+    <meta property="og:url" content="{{.Metadata.baseURL}}{{.RelativePath}}" />
+    <meta property="og:image" content="{{.Metadata.baseURL}}{{.ThumbName 320 213}}" />
 </head>
 
 <body>
