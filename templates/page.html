@@ -70,7 +70,7 @@
         <div class="row">
             {{range .Images}}
             <section class="card">
-                <a href="{{.SinglePicture.RelativePath}}">
+                <a href="{{.Picture.RelativePath}}">
                     {{/* thumbs are obtaining by GETing FileName___widthxheight assuming said size is permitted if it is not you just get the default one */}}
                     <img src="{{.ThumbName 320 213}}" class="card-img-top"
                         alt="{{if .Title}} {{.Title}} {{else}} {{.FileName}} {{end}}">
