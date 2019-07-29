@@ -3,8 +3,11 @@
 <head>
     <title>{{if .Title}} {{.Title}} {{else}} {{.FolderName}} {{end}}</title>
     <meta name="description" content="{{.Description}}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -53,7 +56,7 @@
         </ul>
     </nav>
     <nav class="children">
-        <ul class="nav">
+        <ul class="nav flex-column">
             {{range .Children}}
             <li class="nav-item">
                 <a href="{{.TraversePath}}" class="children_album nav-link">{{if .Title}} {{.Title}} {{else}}
